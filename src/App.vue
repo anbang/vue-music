@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    hello word
+    <m-header></m-header>
+    <tab></tab>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import MHeader from '@/components/m-header/m-header'
+  import Tab from '@/components/tab/tab.vue'
+  export default {
+  //  name: 'app',
+    components: {
+      MHeader,
+      Tab
+    }
+  }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  @import "~assets/stylus/variable.styl";
-  #app
-    color:$color-theme
 
 </style>
