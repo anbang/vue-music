@@ -21,7 +21,7 @@
 </template>
 <script>
   import Slider from '@/base/slider/slider.vue'
-  import { getRecommend } from '@/api/recommend'
+  import { getRecommend, getDiscList } from '@/api/recommend'
   import { ERR_OK } from '@/api/config'
 
   export default {
@@ -32,12 +32,21 @@
     },
     created () {
       this._getRecommend()
+      this._getDiscList()
     },
     methods: {
       _getRecommend () {
         getRecommend().then((res) => {
           if (res.code === ERR_OK) {
             this.recomments = res.data.slider
+          }
+        })
+      },
+      _getDiscList () {
+        console.log('star get info')
+        getDiscList().then((res) => {
+          if (res.code === ERR_OK) {
+            console.log(res.data.list)
           }
         })
       }
