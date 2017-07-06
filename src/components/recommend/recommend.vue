@@ -26,12 +26,16 @@
           </ul>
         </div>
       </div>
+      <div class="loading-container">
+        <loading v-show="!discList.length"></loading>
+      </div>
     </scroll>
   </div>
 </template>
 <script>
   import Slider from '@/base/slider/slider.vue'
   import Scroll from '@/base/scroll/scroll.vue'
+  import Loading from '@/base/loading/loading.vue'
   import { getRecommend, getDiscList } from '@/api/recommend'
   import { ERR_OK } from '@/api/config'
 
@@ -72,7 +76,8 @@
     },
     components: {
       Slider,
-      Scroll
+      Scroll,
+      Loading
     }
   }
 </script>
